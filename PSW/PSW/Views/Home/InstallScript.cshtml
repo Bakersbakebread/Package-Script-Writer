@@ -11,4 +11,9 @@
     <div class="text-end">
         <button id="copy" class="btn btn-success"><i class="ion-ios-copy"></i> Copy Script</button>
     </div>
+    <h1>Options</h1>
+    @await Component.InvokeAsync("Options", Model.PackagesViewModel)
 </div>
+
+
+

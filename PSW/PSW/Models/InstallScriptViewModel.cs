@@ -20,4 +20,15 @@ public class InstallScriptViewModel
         OnelinerOutput = oneLinerOutput;
         RemoveComments = removeComments;
     }
+
+    public InstallScriptViewModel(bool hasQueryString, PackagesViewModel packagesViewModel)
+    {
+        HasQueryString = hasQueryString;
+        Output = packagesViewModel.Output;
+        OnelinerOutput = packagesViewModel.OnelinerOutput;
+        RemoveComments = packagesViewModel.RemoveComments;
+        PackagesViewModel = packagesViewModel;
+    }
+
+    public PackagesViewModel PackagesViewModel { get; set; }
 }

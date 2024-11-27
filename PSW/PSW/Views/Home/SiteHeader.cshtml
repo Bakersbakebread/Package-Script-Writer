@@ -1,5 +1,15 @@
-<div class="heading text-center mb-5">
-    <h1>Package Script Writer</h1>
-    <p><strong>by Paul Seal</strong></p>
-    <p>Tick the box under the packages you want to install and configure the options to generate the required script to run.</p>
-</div>
+<header id="site-header">
+    <div class="container site-header-inner">
+        <div class="brand">
+            <h1><span>Package</span><span>Script</span><span>Writer</span></h1>
+            <div class="author">
+                by Paul Seal
+                <span class="sparkle sparkle1">✦</span>
+                <span class="sparkle sparkle2">✦</span>
+                <span class="sparkle sparkle3">✦</span>
+                <span class="sparkle sparkle4">✦</span>
+            </div>
+        </div>
+        @await Component.InvokeAsync("TabNavigation", new { hasQueryString = Model.HasQueryString, numberOfPackages = Model.AllPackages?.Count ?? 0 })
+    </div>
+</header>

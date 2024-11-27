@@ -1,4 +1,269 @@
-﻿#packagelist div img {
+﻿@import url('https://fonts.googleapis.com/css2?family=Pontano+Sans:wght@300..700&family=Stint+Ultra+Expanded&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --angle: 0deg;
+    --color-primary: #785589;
+    --color-secondary: #dbc4a7;
+    --color-tertiary: #ac7b7e;
+    --color-not-black: #1a1a1a;
+
+    --color-primary-light: #a99eb1;
+    --color-secondary-light: #e0c9b5;
+    --color-tertiary-light: rgba(200, 161, 165, 0.1);
+    --color-not-black-light: #333333;
+
+    --color-primary-dark: #4e3b4d;
+    --color-secondary-dark: #a68b7f;
+    --color-tertiary-dark: #7a4f53;
+    --color-not-black-dark: #000000;
+}
+
+body {
+    font-family: "Pontano Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    background-color: var(--color-tertiary-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+/******************************************************/
+/*Site Header*/
+#site-header {
+    background-color: var(--color-not-black);
+    color: #fff;
+    padding: 1.5rem 1rem;
+}
+
+.site-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#site-header h1 {
+    font-size: clamp(1.2rem, 5vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    line-height: 0.8;
+}
+
+.brand {
+
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    justify-content: center;
+    align-items: end;
+    font-size: clamp(0.6rem, 2.5vw, 1.5rem);
+    font-weight: normal;
+    color: #fff;
+    z-index: 2;
+}
+
+.author {
+    position: relative;
+    margin-left: -1.4rem;
+    opacity: 0.9;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    z-index: 1;
+    animation: sparkle-animation 2s infinite ease-in-out;
+}
+
+.sparkle1 {
+    top: -10px;
+    right: 0;
+    animation-delay: 0s;
+    color: var(--color-primary);
+}
+
+.sparkle2 {
+    top: 10px;
+    right: 30px;
+    animation-delay: 0.3s;
+    color: var(--color-secondary);
+}
+
+.sparkle3 {
+    top: -5px;
+    right: 50px;
+    animation-delay: 0.6s;
+    color: var(--color-tertiary);
+}
+
+.sparkle4 {
+    top: -2px;
+    right: 80px;
+    animation-delay: 0.3s;
+    color: var(--color-primary-light);
+}
+
+@keyframes sparkle-animation {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.5);
+    }
+}
+
+/****************************************************/
+/*Navigation styles*/
+/****************************************************/
+
+.nav-wrapper {
+    display: flex;
+}
+
+.nav-tabs {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+}
+
+.nav-tabs .nav-link {
+    border: none; /* override bootstrap*/
+}
+
+.nav-wrapper .nav-tabs {
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-wrapper .nav-item {
+    margin-bottom: -1px;
+    border: none;
+    background: var(--color-not-black-light)
+}
+
+.secondary-nav .nav-item {
+    background: transparent;
+}
+
+
+.nav-wrapper .nav-link {
+    background-color: rgba(var(--color-not-black), 0.4) !important;
+    color: #ddd;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border: solid 2px transparent !important;
+}
+
+.nav-wrapper .nav-link:hover,
+.nav-wrapper .nav-link:focus,
+.nav-wrapper .nav-link.active {
+    background-color: #444 !important;
+    border: solid 2px transparent !important;
+    background: linear-gradient(#131219, #131219) padding-box, linear-gradient(
+            var(--angle),
+            var(--color-primary),
+            var(--color-secondary)
+    ) border-box;
+    animation: 6s rotate linear infinite;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-tabs {
+        width: 100%;
+    }
+
+    .primary-nav {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+}
+
+
+.nav-wrapper .nav-link.active {
+    background-color: #444 !important;
+    color: #fff;
+    border: none;
+}
+
+.primary-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Secondary Navigation Styles */
+.secondary-nav {
+    display: flex;
+    justify-content: end;
+    padding-top: 1rem;
+    gap: 0.5rem;
+    padding-left: 0; /* override UL styling */
+}
+
+@media (max-width: 768px) {
+    .secondary-nav {
+        flex-direction: row;
+        gap: 0.1rem;
+        padding-left: 0;
+    }
+
+    .secondary-nav .nav-link {
+        font-size: 0.75rem;
+    }
+}
+
+.secondary-nav .nav-item {
+    display: inline;
+}
+
+.secondary-nav .nav-link {
+    color: #bbb;
+    padding: 0.25rem 1rem;
+    background: transparent !important;
+}
+
+.secondary-nav .nav-link:hover,
+.secondary-nav .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+    background-size: 100% 8px;
+}
+
+.secondary-nav i {
+    margin-right: 0.25rem;
+}
+
+/****************************************************/
+/*End navigation styles*/
+/****************************************************/
+
+#packagelist div img {
     width: 100px;
     height: 100px;
     margin: 0 auto;
@@ -38,33 +303,64 @@ pre:not(.prettyprinted) {
 }
 
 #packagelist .card {
-    border: 1px solid rgba(0,0,0, 0.125);
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    background: #fdfdfd;
     min-height: 380px;
     cursor: pointer;
-    transition: box-shadow 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    justify-content: space-between;
 }
 
-    #packagelist .card:hover {
-        border: 1px solid rgba(0,0,0, 0.125);
-        box-shadow: 0 .5rem 1rem rgba(0,0,0, .15);
-        min-height: 380px;
-        cursor: pointer;
-        transition: box-shadow 0.3s ease-in-out;
-    }
 
-    #packagelist .card.selected {
-        border: 1px solid var(--indigo);
-        box-shadow: 0 .5rem 1rem rgba(102,16,242, .15);
-    }
+#packagelist .card .card-image {
+    padding: 1rem;
+    margin: 0;
+    min-height: 100px;
+}
 
-    #packagelist .card input[type="checkbox"] {
-        width: 1em;
-        height: 1em;
-        cursor: pointer;
-    }
+#packagelist .card .card-title > * {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 700;
+    width: 100%;
+    line-height: 1;
+    /* letter spcing short*/
+    letter-spacing: -0.03em;
+}
 
-.nav-tabs .nav-item .nav-link:not(.active) {
-    background-color: lightgrey;
+#packagelist .card .card-actions {
+    padding: 1rem;
+}
+
+#packagelist .card:hover {
+    border: 2px solid var(--color-primary);
+    min-height: 380px;
+    transform: scale(1.02);
+}
+
+#packagelist .card.selected {
+    border: 2px solid var(--color-primary);
+}
+
+#packagelist .card input[type="checkbox"] {
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+/* add curves to select menu */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0.5em 1em;
+    border-radius: 0.5em !important;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #000;
+    font-size: 1em;
+    cursor: pointer;
 }
 
 #code-nav-item.glow .nav-link {
@@ -84,6 +380,6 @@ div.tab-pane p a {
     align-items: center;
 }
 
-    #umbraco-template-version select {
-        flex: 1;
-    }
+#umbraco-template-version select {
+    flex: 1;
+}
